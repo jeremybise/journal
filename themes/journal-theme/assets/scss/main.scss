@@ -1,0 +1,18 @@
+@import "normalize";
+
+@import "type";
+@import "syntax";
+@import "layout";
+@import "header";
+@import "nav";
+
+$fontHeading: {{ $.Site.Params.heading_font | default "'Roboto', sans-serif" }};
+$fontBody: {{ $.Site.Params.body_font | default "'Roboto', sans-serif" }};
+
+body {
+  font-family: $fontHeading;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $fontBody; 
+}
