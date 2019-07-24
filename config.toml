@@ -1,0 +1,15 @@
+baseURL = "http://example.org/"
+languageCode = "en-us"
+title = "Jeremy Bise"
+theme = "journal-theme"
+
+pygmentsCodefences = true
+pygmentsUseClasses = true
+
+[params]
+  google_fonts = [
+    ["Open Sans", "400, 400i, 700, 700i"]
+  ]
+
+  heading_font = "Open Sans"
+  body_font = "Open Sans"

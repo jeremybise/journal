@@ -1,0 +1,15 @@
+.global-header {
+  padding: 2rem;
+  display: flex;
+  .logo {
+    flex: 1;
+    h1 {
+      margin: 0;
+      padding: 0;
+    }
+  }
+  .global-nav {
+    flex: 3;
+    text-align: right;
+  }
+}
