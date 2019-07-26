@@ -9,10 +9,24 @@
 $fontHeading: {{ $.Site.Params.heading_font | default "'Roboto', sans-serif" }};
 $fontBody: {{ $.Site.Params.body_font | default "'Roboto', sans-serif" }};
 
+$bodyBackgroundColor: {{ $.Site.Params.body_background_color | default "#FAFAFA" }};
+
+$linkColor: {{ $.Site.Params.link_color | default "#333" }};
+$linkHoverColor: {{ $.Site.Params.link_hover_color | default "#555" }};
+
 body {
   font-family: $fontHeading;
+  background: $bodyBackgroundColor;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: $fontBody; 
+}
+
+a {
+  color: $linkColor;
+  transition: color .3s;
+  &:hover {
+    color: $linkHoverColor;
+  }
 }

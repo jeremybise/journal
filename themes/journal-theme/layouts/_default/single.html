@@ -1,6 +1,6 @@
 {{ define "main" }}
   <article class="post entry">
-      {{ if .Params.image }}
+    {{ if .Params.image }}
       <figure class="post-thumbnail">
         <a class="post-thumbnail-inner" href="{{ .RelPermalink }}" aria-hidden="true">
           {{ with .Resources.GetMatch .Params.image }}
@@ -10,15 +10,14 @@
         </a>
       </figure>
     {{ end }}
-    {{ if (not (isset .Params "image")) }}
-      <header class="entry-header">
-        <h1 class="entry-title">{{ .Title }}</h1>
-      </header>
-    {{ end }}
+    <header class="entry-header">
+      <h1 class="entry-title">{{ .Title }}</h1>
+    </header>
     <div class="entry-content">
       {{ .Content }}
     </div>
     <div class="entry-footer">
+      {{ partial "post-meta" . }}
     </div>
   </article>
 {{ end }}

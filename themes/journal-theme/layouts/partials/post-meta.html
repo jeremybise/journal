@@ -1,0 +1,15 @@
+<div class="entry-meta">
+  <span class="entry-categories">
+    {{ with .Params.categories }}
+      {{ range $index, $cat := . }}
+          {{- if gt $index 0 }}, {{ end -}}
+          {{ with $.Site.GetPage (printf "/%s/%s" "categories" $cat) -}}
+            <a href="{{ .Permalink }}">{{ $cat }}</a>
+          {{- end -}}
+      {{- end -}}
+    {{ end }}
+  </span>
+  <span class="entry-date">
+    {{ dateFormat "January 2, 2006" .Date }}
+  </span>
+</div>

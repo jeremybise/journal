@@ -1,4 +1,4 @@
-{{ $paginator := .Paginate (where .Pages "Type" "posts") }}
+{{ $paginator := .Paginate (where site.RegularPages "Type" "in" site.Params.mainSections) }}
 {{ range $paginator.Pages }}
   <article class="post entry">
     {{ if .Params.image }}
@@ -16,22 +16,7 @@
       <h2 class="entry-title">
         <a href="{{ .RelPermalink }}" rel="bookmark">{{.Title}}</a>
       </h2>
-      <div class="entry-meta">
-        <span class="entry-categories">
-          {{ $taxo := "categories" }} <!-- Use the plural form here -->
-          {{ with .Param $taxo }}
-              {{ range $index, $director := . }}
-                  {{- if gt $index 0 }}, {{ end -}}
-                  {{ with $.Site.GetPage (printf "/%s/%s" $taxo $director) -}}
-                      <a href="{{ .Permalink }}">{{ $director }}</a>
-                  {{- end -}}
-              {{- end -}}
-          {{ end }}
-        </span>
-          <span class="entry-date">
-            {{ dateFormat "January 2, 2006" .Params.date }}
-          </span>
-      </div>
+      {{ partial "post-meta" . }}
     </header>
 
     <div class="entry-content">
