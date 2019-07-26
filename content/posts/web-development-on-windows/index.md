@@ -2,7 +2,7 @@
 title: Setting Up Windows Subsystem Linux (WSL) for Modern Web Development on Windows
 date: 2018-09-13
 slug: "web-development-on-windows"
-featured_image: /uploads/webdev-win.png
+image: webdev-win.png
 categories:
   - dev
 ---

@@ -1,7 +1,7 @@
 ---
 title: Design Links
 date: '2019-01-15T00:00:00-05:00'
-featured_image: /uploads/design-resources.png
+image: design-resources.png
 categories:
   - dev
 ---

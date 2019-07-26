@@ -1,7 +1,7 @@
 ---
 title: Sourdough Bread
 date: 2018-07-24
-featured_image: /uploads/sourdoughbread.jpg
+image: sourdoughbread.jpg
 categories:
 - Recipes
 related:

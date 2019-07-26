@@ -1,7 +1,7 @@
 ---
 title: Bread & Butter Pickles
 date: 2019-03-24
-featured_image: /uploads/bread-butter-pickles.jpg
+image: bread-butter-pickles.jpg
 categories:
 - Recipes
 related:

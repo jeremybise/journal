@@ -1,7 +1,7 @@
 ---
 title: Sourdough Starter
 date: 2018-07-21
-featured_image: /uploads/sourdoughstarter.jpg
+image: sourdoughstarter.jpg
 categories:
   - Recipes
 related:

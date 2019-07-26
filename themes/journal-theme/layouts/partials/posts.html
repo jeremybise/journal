@@ -1,10 +1,13 @@
 {{ $paginator := .Paginate (where .Pages "Type" "posts") }}
 {{ range $paginator.Pages }}
   <article class="post entry">
-    {{ if .Params.featured_image }}
+    {{ if .Params.image }}
       <figure class="post-thumbnail">
         <a class="post-thumbnail-inner" href="{{ .RelPermalink }}" aria-hidden="true">
-          <img src="{{ .Params.featured_image }}" />
+          {{ with .Resources.GetMatch .Params.image }}
+            {{ $resized := .Fill "960x640" }}
+            <img src="{{ $resized.RelPermalink }}" />
+          {{ end }}
         </a>
       </figure>
     {{ end }}
@@ -38,7 +41,7 @@
       {{ if .Truncated }}
         <footer class="entry-footer">
           <a href="{{ .RelPermalink }}" class="more-link">
-            Read more
+            {{ T "read_more" }}
           </a>
         </footer>
       {{ end }}

@@ -1,7 +1,7 @@
 ---
 title: Google Fonts in Hugo Themes
 date: 2019-04-22
-featured_image: /uploads/hugo.png
+image: hugo.png
 categories:
   - dev
 ---
