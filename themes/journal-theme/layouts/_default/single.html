@@ -1,23 +1,23 @@
 {{ define "main" }}
-  <article class="post entry">
-    {{ if .Params.image }}
-      <figure class="post-thumbnail">
-        <a class="post-thumbnail-inner" href="{{ .RelPermalink }}" aria-hidden="true">
-          {{ with .Resources.GetMatch .Params.image }}
-            {{ $resized := .Fill "960x640" }}
-            <img src="{{ $resized.RelPermalink }}" />
-          {{ end }}
-        </a>
-      </figure>
+<article class="post single">
+  <header class="entry-header">
+    <h1 class="entry-title">{{ .Title }}</h1>
+  </header>
+
+  {{ if .Params.image }}
+  <figure class="post-thumbnail">
+    {{ with .Resources.GetMatch .Params.image }}
+    {{ $resized := .Fill "1600x900" }}
+    <img src="{{ $resized.RelPermalink }}" />
     {{ end }}
-    <header class="entry-header">
-      <h1 class="entry-title">{{ .Title }}</h1>
-    </header>
-    <div class="entry-content">
-      {{ .Content }}
-    </div>
-    <div class="entry-footer">
-      {{ partial "post-meta" . }}
-    </div>
-  </article>
+  </figure>
+  {{ end }}
+
+  <div class="entry-content">
+    {{ .Content }}
+  </div>
+  <div class="entry-footer">
+    {{ partial "post-meta" . }}
+  </div>
+</article>
 {{ end }}

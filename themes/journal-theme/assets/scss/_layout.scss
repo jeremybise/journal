@@ -1,16 +1,33 @@
 #content {
   max-width: 1600px;
   margin: auto;
-  padding: 0 1rem;
+  padding: 0 2rem;
   img {
     max-width: 100%;
   }
 }
 
-.post {
+.post.entry {
   margin-bottom: 4rem;
   display: flex;
   background: #FFF;
+}
+
+.post.single {
+  .post-thumbnail {
+    margin-bottom: 2rem;
+  }
+  .entry-title, .entry-content, .entry-footer {
+    max-width: 950px;
+    margin: auto;
+  }
+  .entry-title {
+    text-align: center;
+    margin: 2rem auto 4rem auto;
+  }
+  .entry-footer {
+    margin-top: 2rem;
+  }
 }
 
 .post-thumbnail {
@@ -22,10 +39,5 @@
   align-self: center;
 }
 .post-details-inner {
-  padding: 2rem;
-}
-
-.entry-header,
-.entry-content {
-  margin: 0 4rem;
+  padding: 2rem 4rem;
 }
