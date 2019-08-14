@@ -1,5 +1,5 @@
 #content {
-  max-width: 960px;
+  max-width: 1600px;
   margin: auto;
   padding: 0 1rem;
   img {
@@ -8,13 +8,24 @@
 }
 
 .post {
-  margin-bottom: 8rem;
+  margin-bottom: 4rem;
+  display: flex;
+  background: #FFF;
 }
 
 .post-thumbnail {
   margin: 0;
+  flex: 1;
+}
+.post-details {
+  flex: 1;
+  align-self: center;
+}
+.post-details-inner {
+  padding: 2rem;
 }
 
-.entry-header, .entry-content {
+.entry-header,
+.entry-content {
   margin: 0 4rem;
 }

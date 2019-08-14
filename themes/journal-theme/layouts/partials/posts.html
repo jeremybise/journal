@@ -1,37 +1,41 @@
 {{ $paginator := .Paginate (where site.RegularPages "Type" "in" site.Params.mainSections) }}
 {{ range $paginator.Pages }}
-  <article class="post entry">
-    {{ if .Params.image }}
-      <figure class="post-thumbnail">
-        <a class="post-thumbnail-inner" href="{{ .RelPermalink }}" aria-hidden="true">
-          {{ with .Resources.GetMatch .Params.image }}
-            {{ $resized := .Fill "960x640" }}
-            <img src="{{ $resized.RelPermalink }}" />
-          {{ end }}
-        </a>
-      </figure>
-    {{ end }}
+<article class="post entry">
+  {{ if .Params.image }}
+  <figure class="post-thumbnail">
+    <a class="post-thumbnail-inner" href="{{ .RelPermalink }}" aria-hidden="true">
+      {{ with .Resources.GetMatch .Params.image }}
+      {{ $resized := .Fill "960x960" }}
+      <img src="{{ $resized.RelPermalink }}" />
+      {{ end }}
+    </a>
+  </figure>
+  {{ end }}
 
-    <header class="entry-header">
-      <h2 class="entry-title">
-        <a href="{{ .RelPermalink }}" rel="bookmark">{{.Title}}</a>
-      </h2>
-      {{ partial "post-meta" . }}
-    </header>
+  <div class="post-details">
+    <div class="post-details-inner">
+      <header class="entry-header">
+        <h2 class="entry-title">
+          <a href="{{ .RelPermalink }}" rel="bookmark">{{.Title}}</a>
+        </h2>
+        {{ partial "post-meta" . }}
+      </header>
 
-    <div class="entry-content">
-      <p>
-        {{ .Summary | markdownify }}
-      </p>
-      {{ if .Truncated }}
+      <div class="entry-content">
+        <p>
+          {{ .Summary | markdownify }}
+        </p>
+        {{ if .Truncated }}
         <footer class="entry-footer">
           <a href="{{ .RelPermalink }}" class="more-link">
             {{ T "read_more" }}
           </a>
         </footer>
-      {{ end }}
+        {{ end }}
+      </div>
     </div>
-  </article>
+  </div>
+</article>
 {{ end }}
 
 {{ if gt $paginator.TotalPages 1 }}
@@ -39,23 +43,23 @@
   <h2 class="screen-reader-text">Posts navigation</h2>
   <div class="nav-links">
     {{ if $paginator.HasPrev }}
-      <a class="prev page-numbers" href="{{ $paginator.Prev.URL }}">
-        <span class="nav-prev-text">Newer posts</span>
-      </a>
+    <a class="prev page-numbers" href="{{ $paginator.Prev.URL }}">
+      <span class="nav-prev-text">Newer posts</span>
+    </a>
     {{ end }}
 
     {{ range $paginator.Pagers }}
-      {{ if eq . $paginator }}
-        <span aria-current="page" class="page-numbers current">{{ .PageNumber }}</span>
-      {{ else }}
-        <a href="{{ .URL }}" class="page-numbers">{{ .PageNumber }}</a>
-      {{ end }}
+    {{ if eq . $paginator }}
+    <span aria-current="page" class="page-numbers current">{{ .PageNumber }}</span>
+    {{ else }}
+    <a href="{{ .URL }}" class="page-numbers">{{ .PageNumber }}</a>
+    {{ end }}
     {{ end }}
 
     {{ if $paginator.HasNext }}
-      <a class="next page-numbers" href="{{ $paginator.Next.URL }}">
-        <span class="nav-next-text">Older posts</span>
-      </a>
+    <a class="next page-numbers" href="{{ $paginator.Next.URL }}">
+      <span class="nav-next-text">Older posts</span>
+    </a>
     {{ end }}
   </div>
 </nav>
